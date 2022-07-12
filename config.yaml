@@ -1,0 +1,13 @@
+# Train details
+date: "2022-07-14"
+time: "01:23"
+from: ""
+to: ""
+
+# Tickets details
+quantity: 1
+tariff: REGULAR
+preffered_class: C1
+
+# Notify.run details
+notify_code: 
