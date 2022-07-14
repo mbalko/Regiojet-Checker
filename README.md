@@ -14,7 +14,7 @@ Aplikacia vyhladava listky podla konfiguracie vo forme YAML manifestu (standardn
 | `to`              	| Destinacia           	| ID lokality, viz. [locations.md](locations.md)       	|
 | `preffered_class` 	| Chcena trieda        	| Kluc triedy, viz. [classes.md](classes.md)         	|
 | `tariff`          	| Tarif listku/listkov 	| Kluc tarifu/tarifov, viz. [tariffs.md](tariffs.md) 	|
-| `notify_code`     	| notify.run kanal     	| Kod notify.run kanala, viz. nizsie   	|
+| `notify_code`     	| notify.run kanal     	| Kod notify.run kanala, viz. [nizsie](#notifyrun)   	|
 
 ### Viacero listkov
 
