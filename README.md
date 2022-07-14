@@ -18,7 +18,18 @@ Aplikacia vyhladava listky podla konfiguracie vo forme YAML manifestu (standardn
 
 ### Viacero listkov
 
-V ramci konfiguracneho suboru je mozne definovat viacero listkov - staci pre kluc `tariff` definovat take tarify listkov, ake su pozadovane. 
+V ramci konfiguracneho suboru je mozne definovat viacero listkov - staci pre kluc `tariff` definovat take tarify listkov, ake su pozadovane. Pre jeden listok  `tariff` moze vyzerat napriklad takto:
+```
+tariff: REGULAR
+```
+
+V pripade viacerych listkov (napriklad 2x Dospely, 1x Senior) vyzera nasledovne:
+```
+tariff:
+  - REGULAR
+  - REGULAR
+  - ISIC
+```
 
 Pre ukazku konfiguracneho suboru viz. [config.yaml](config.yaml).
 
