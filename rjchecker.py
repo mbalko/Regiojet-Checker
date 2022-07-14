@@ -8,6 +8,7 @@ def main():
     if len(sys.argv) > 1:
         if sys.argv[1] == "-h" or len(sys.argv) != 3:
             print("Usage: {} [-c config_file]".format(sys.argv[0]))
+            return
         elif sys.argv[1] == "-c" and len(sys.argv) == 3:
             config_file = sys.argv[2]
     
