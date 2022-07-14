@@ -15,7 +15,11 @@ class rjapi:
 
     def __load_config(self, config_file):
         with open(config_file, "r") as f:
-            return yaml.safe_load(f)
+            cfg = yaml.safe_load(f)
+        if type(cfg["tariff"]) is str:
+            cfg["tariff"] = [cfg["tariff"]]
+        cfg["quantity"] = len(cfg["tariff"])
+        return cfg
     
 
     def search_class(self, train):
@@ -63,9 +67,10 @@ class rjapi:
 
     def send_alert(self):
         # Craft data
+        tariffs = "&tariffs=".join(self.config["tariff"])
         data = {
             "message" : "Tickets for {}T{} available!".format(self.config["date"], self.config["time"]),
-            "action" : self.__shop_link.format(self.config["date"], self.config["from"], self.config["to"], self.config["tariff"])
+            "action" : self.__shop_link.format(self.config["date"], self.config["from"], self.config["to"], tariffs)
         }
         # Send to notify.run
         requests.post("https://notify.run/"+self.config["notify_code"], data=data)
