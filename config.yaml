@@ -1,13 +1,16 @@
 # Train details
-date: "2022-07-14"
-time: "01:23"
-from: ""
-to: ""
+date: "2022-10-01"
+time: "00:09"
+from: "49584000" # Vrutky
+to: "10202003" # Praha
 
 # Tickets details
-quantity: 1
-tariff: REGULAR
 preffered_class: C1
+tariff: 
+  - REGULAR
+  - CZECH_STUDENT_PASS_26
+  - ISIC
+  - ISIC
 
 # Notify.run details
-notify_code: 
+notify_code: <code>
