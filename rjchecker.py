@@ -18,6 +18,7 @@ def main():
 
 
 def start(api):
+    print(api.config)
     print(datetime.now(), "Regiojet Checker started.")
     while True:
         # Tickets available
