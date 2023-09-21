@@ -5,6 +5,7 @@ from: "372825009" # Ostrava - Stodolni
 from_type: STATION
 to: "10202003" # Praha
 to_type: CITY
+max_changes: 0 # Direct trains only
 
 # Tickets details
 preffered_class: C1
