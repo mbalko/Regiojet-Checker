@@ -11,12 +11,15 @@ Aplikacia vyhladava listky podla konfiguracie vo forme YAML manifestu (standardn
 | `date`            	| Datum odchodu vlaku  	| Datum vo formate "YYYY-MM-DD"        	|
 | `time`            	| Cas odchodu vlaku    	| Cas vo formate "HH:MM"               	|
 | `from`            	| Vychodzia stanica    	| ID lokality, viz. [locations.md](locations.md)       	|
+| `from_type`            	| Typ vychodzej stanice    	| CITY/STATION       	|
 | `to`              	| Destinacia           	| ID lokality, viz. [locations.md](locations.md)       	|
-| `preffered_class` 	| Chcena trieda        	| Kluc triedy, viz. [classes.md](classes.md)         	|
+| `to_type`            	| Typ vychodzej stanice    	| CITY/STATION       	|
+| `max_changes`            	| Maximalny pocet prestupov    	| Cislo >= 0       	|
+| `preffered_class` 	| Preferovana trieda        	| Kluc triedy, viz. [classes.md](classes.md)         	|
 | `tariff`          	| Tarif listku/listkov 	| Kluc tarifu/tarifov, viz. [tariffs.md](tariffs.md) 	|
 | `notify_code`     	| notify.run kanal     	| Kod notify.run kanala, viz. [nizsie](#notifyrun)   	|
 
-### Viacero listkov
+### Viacero listkov, preferovanych tried
 
 V ramci konfiguracneho suboru je mozne definovat viacero listkov - staci pre kluc `tariff` definovat take tarify listkov, ake su pozadovane. Pre jeden listok  `tariff` moze vyzerat napriklad takto:
 ```
@@ -29,6 +32,18 @@ tariff:
   - REGULAR
   - REGULAR
   - ISIC
+```
+
+Analogicky funguje aj nastavenie preferovanej triedy. V pripade jednej preferovanej triedy staci nastavit parameter `preffered_class` napriklad takto:
+```
+preffered_class: C1
+```
+
+V pripade viacerych preferovanych tried zase takto:
+```
+preffered_class:
+  - C1
+  - TRAIN_LOW_COST
 ```
 
 Pre ukazku konfiguracneho suboru viz. [config.yaml](config.yaml).
