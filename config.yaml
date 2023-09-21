@@ -1,8 +1,10 @@
 # Train details
 date: "2022-10-01"
 time: "00:09"
-from: "49584000" # Vrutky
+from: "372825009" # Ostrava - Stodolni
+from_type: STATION
 to: "10202003" # Praha
+to_type: CITY
 
 # Tickets details
 preffered_class: C1
