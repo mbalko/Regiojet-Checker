@@ -21,6 +21,8 @@ class rjapi:
             cfg["tariff"] = "&tariffs=".join(cfg["tariff"])
         else:
             cfg["quantity"] = 1
+        if type(cfg["preffered_class"]) is str:
+            cfg["preffered_class"] = [cfg["preffered_class"]]
         return cfg
     
 
@@ -33,9 +35,9 @@ class rjapi:
         # No preffered class
         if not self.config["preffered_class"]:
             return True
-        # Find preffered class and check availability
+        # Find preffered class and check seat availability
         for i in train_details["priceClasses"]:
-            if i["seatClassKey"] == self.config["preffered_class"] and i["freeSeatsCount"] >= self.config["quantity"]:
+            if i["seatClassKey"] in self.config["preffered_class"] and i["freeSeatsCount"] >= self.config["quantity"]:
                 return True
         return False
 
