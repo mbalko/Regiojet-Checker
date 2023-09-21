@@ -8,7 +8,7 @@ class rjapi:
         if config_file is None:
             config_file = "config.yaml"
         self.config = self.__load_config(config_file)
-        self.__search_endpoint = "https://brn-ybus-pubapi.sa.cz/restapi/routes/search/simple?locale=sk&departureDate={}&fromLocationId={}&toLocationId={}&fromLocationType=CITY&toLocationType=CITY&tariffs=REGULAR"
+        self.__search_endpoint = "https://brn-ybus-pubapi.sa.cz/restapi/routes/search/simple?locale=sk&departureDate={}&fromLocationId={}&toLocationId={}&fromLocationType={}&toLocationType={}&tariffs=REGULAR"
         self.__train_enpoint = "https://brn-ybus-pubapi.sa.cz/restapi/routes/{0}/simple?routeId={0}&fromStationId={1}&toStationId={2}&tariffs=REGULAR"
         self.__shop_link = "https://regiojet.cz/?departureDate={}&fromLocationId={}&toLocationId={}&fromLocationType=CITY&toLocationType=CITY&tariffs={}"
     
@@ -34,7 +34,7 @@ class rjapi:
 
     def search_ticket(self):
         # Get all routes for given date
-        trains = requests.get(self.__search_endpoint.format(self.config["date"], self.config["from"], self.config["to"])).json()
+        trains = requests.get(self.__search_endpoint.format(self.config["date"], self.config["from"], self.config["to"], self.config["from_type"], self.config["to_type"])).json()
         # No trains on given trains
         if "routes" not in trains:
             return False
