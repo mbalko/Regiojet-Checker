@@ -2,6 +2,7 @@ from rjapi import rjapi
 from time import sleep
 from datetime import datetime
 import sys
+import os
 
 def main():
     config_file = None
@@ -17,6 +18,8 @@ def main():
         api = rjapi(config_file)
     except FileNotFoundError:
         print(datetime.now(), "Config file not found.")
+        if "DOCKER" in os.environ:
+            print(datetime.now(), "Use -v path/to/config:/app/config.yaml to mount your config file.")
         return
     start(api)
 
