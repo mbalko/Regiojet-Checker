@@ -13,7 +13,11 @@ def main():
             config_file = sys.argv[2]
     
     # Initialize rjapi and start infinite loop
-    api = rjapi(config_file)
+    try:
+        api = rjapi(config_file)
+    except FileNotFoundError:
+        print(datetime.now(), "Config file not found.")
+        return
     start(api)
 
 
