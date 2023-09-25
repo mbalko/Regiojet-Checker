@@ -6,14 +6,14 @@ Jednoducha terminalova aplikacia umoznujuca odchyt [Regiojet.cz](https://regioje
 
 Aplikacia vyhladava listky podla konfiguracie vo forme YAML manifestu (standardny nazov `config.yaml`), ktora obsahuje vsetky potrebne informacie o vlaku a pozadovanom listku.
 
-| Kluc            	| Popis                	| Mozne hodnoty                        	|
+| Parameter            	| Popis                	| Mozne hodnoty                        	|
 |-----------------	|----------------------	|--------------------------------------	|
 | `date`            	| Datum odchodu vlaku  	| Datum vo formate "YYYY-MM-DD"        	|
 | `time`            	| Cas odchodu vlaku    	| Cas vo formate "HH:MM"               	|
 | `from`            	| Vychodzia stanica    	| ID lokality, viz. [locations.md](locations.md)       	|
 | `from_type`            	| Typ vychodzej stanice    	| CITY/STATION       	|
 | `to`              	| Destinacia           	| ID lokality, viz. [locations.md](locations.md)       	|
-| `to_type`            	| Typ vychodzej stanice    	| CITY/STATION       	|
+| `to_type`            	| Typ destinacnej stanice    	| CITY/STATION       	|
 | `max_changes`            	| Maximalny pocet prestupov    	| Cislo >= 0       	|
 | `preffered_class` 	| Preferovana trieda        	| Kluc triedy, viz. [classes.md](classes.md)         	|
 | `tariff`          	| Tarif listku/listkov 	| Kluc tarifu/tarifov, viz. [tariffs.md](tariffs.md) 	|
