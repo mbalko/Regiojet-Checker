@@ -57,9 +57,19 @@ Pre vyuzitie sluzby notify.run staci vytvorit na stranke sluzby kanal (modre tla
 Pre spustenie aplikacie je mozne vyuzit predpripraveny script `rjchecker.py`. Script je prednastaveny tak, ze vyhladava konfiguracny subor `config.yaml`, avsak ponuka moznost nacitat aj iny konfiguracny subor pomocou prepinaca `-c <config_file>`.
 
 ```
+$ pip3 install -r requirements.txt
 $ python3 rjchecker.py
 $ python3 rjchecker.py -c another_config.yaml
 ```
 
 
 Po spusteni aplikacia kazdych 20 sekund vyhladava pozadovanu konfiguraciu. V pripade volnych listkov odosle notifikaciu na zadany notify.run kanal a uspi sa na 5 minut. Po kliknuti na notifikaciu sa otvori prehliadac na vyhladavani Regiojet.cz so zadanou konfiguraciou.
+
+## Docker
+
+Repozitar obsahuje `Dockerfile`, ktory umoznuje zbuildenie docker image. Tento image nasledne mozno spustit bez nutnosti instalovat python3 a jeho moduly. Do vytvoreneho kontajnera je nutne namountovat konfiguracny subor `config.yaml` do cesty `/app/config.yaml`. Cely postup po naklonovani repozitara moze napriklad vyzerat takto:
+
+```
+$ docker build -t rjchecker .
+$ docker run -it -d -v $PWD/config.yaml:/app/config.yaml rjchecker
+```
